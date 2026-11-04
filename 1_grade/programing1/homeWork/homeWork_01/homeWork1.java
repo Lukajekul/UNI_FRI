@@ -37,10 +37,28 @@ public class homeWork1 {
                 }
                 return stepCount;
             case 3:
-                
+                stepCount += Math.abs() + Math.abs(findRow(d, cP2) - findRow(d, cP1));
             case 4:
                 break;
             }
         return 0;
+        }
+
+        public static int findRow(int rows, int number) {
+            int row = 1;
+            for (int i = 1; i < rows + 1; i++) {
+                if (Math.pow(i, 2) > number) {
+                    row = i;
+                    break;
+                }
+            }
+            return row - 1;
+        }
+        public static int findCol(int rows, int number) {
+            int row = findRow(rows, number);
+            
+            int emptyCol = (rows - row)/2;
+
+
         }
 }
