@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class homeWork1 {
+public class homeWork2 {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         int type = sc.nextInt();
@@ -15,7 +15,6 @@ public class homeWork1 {
         int stepCount = 0;
         int cP1 = sc.nextInt();
         int cP2 = sc.nextInt();
-
         switch(type){
             case 1:
                 stepCount += Math.abs(cP1 - cP2);
@@ -44,7 +43,17 @@ public class homeWork1 {
                 }
                 return stepCount;
             case 4:
-                break;
+                int[] a = findCords(cP1, d);
+                int[] b = findCords(cP2, d);
+                stepCount += Math.abs(b[0] - a[0]) + Math.abs(b[1] - a[1]);
+                for (int i = 0; i < press - 2; i++) {
+                    cP1 = cP2;
+                    cP2 = sc.nextInt();
+                    a = findCords(cP1, d);
+                    b = findCords(cP2, d);
+                    stepCount += Math.abs(b[0] - a[0]) + Math.abs(b[1] - a[1]);
+                }
+                return stepCount;
             }
         return 0;
         }
@@ -66,4 +75,41 @@ public class homeWork1 {
             int emptyCol = rows - 1 - row;
             return emptyCol + numSpace;
         }
+        
+        public static int[] findCords(int number, int d) {
+            int col = d / 2;
+            int row = col;
+            int circle = circleNum(number);
+            if (circle == 0) return new int[] {row,col};
+            int p = number - (2*circle -1 ) * (2*circle - 1);
+            int side = p / (2*circle);
+            int off = p % (2*circle);
+            switch(side){
+                case 0:
+                    row -= circle;
+                    col += -circle + off;
+                return new int[] {row, col};
+                case 1:
+                    col += circle;
+                    row += -circle + off;
+                return new int[] {row, col};
+                case 2:
+                    row += circle;
+                    col += circle - off;
+                return new int[] {row, col};
+                case 3:
+                    col -= circle;
+                    row += circle - off;
+                return new int[] {row, col};
+            }
+            return new int[] {row,col};
+        }
+        public static int circleNum(int number){
+            int circle = 0;
+            while (number >= (2*(circle+1) - 1) *  (2*(circle+1) - 1)) {
+                circle++;
+            }
+            return circle;
+        }
+
 }
