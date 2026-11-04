@@ -32,12 +32,17 @@ public class homeWork1 {
                 for (int i = 0; i < press - 2; i++) {
                     cP1 = cP2;
                     cP2 = sc.nextInt();
-                    stepCount += Math.abs(cP2 / d - cP1 / d) +  Math.abs(cP2 % d - cP1 % d); 
-
+                    stepCount += Math.abs(cP2 / d - cP1 / d) +  Math.abs(cP2 % d - cP1 % d);
                 }
                 return stepCount;
             case 3:
-                stepCount += Math.abs() + Math.abs(findRow(d, cP2) - findRow(d, cP1));
+                stepCount += Math.abs(findCol(d, cP2) - findCol(d, cP1)) + Math.abs(findRow(d, cP2) - findRow(d, cP1));
+                for (int i = 0; i < press - 2; i++) {
+                    cP1 = cP2;
+                    cP2 = sc.nextInt();
+                    stepCount += Math.abs(findCol(d, cP2) - findCol(d, cP1)) + Math.abs(findRow(d, cP2) - findRow(d, cP1));
+                }
+                return stepCount;
             case 4:
                 break;
             }
@@ -56,9 +61,9 @@ public class homeWork1 {
         }
         public static int findCol(int rows, int number) {
             int row = findRow(rows, number);
-            
-            int emptyCol = (rows - row)/2;
-
-
+            int digit = row * row;
+            int numSpace = number - digit;
+            int emptyCol = rows - 1 - row;
+            return emptyCol + numSpace;
         }
 }
