@@ -18,7 +18,6 @@ public class homeWork2 {
         switch(type){
             case 1:
                 stepCount += Math.abs(cP1 - cP2);
-
                 for(int i = 0; i < press - 2; i++) {
                     cP1 = cP2;
                     cP2 = sc.nextInt();
@@ -34,6 +33,7 @@ public class homeWork2 {
                     stepCount += Math.abs(cP2 / d - cP1 / d) +  Math.abs(cP2 % d - cP1 % d);
                 }
                 return stepCount;
+
             case 3:
                 stepCount += Math.abs(findCol(d, cP2) - findCol(d, cP1)) + Math.abs(findRow(d, cP2) - findRow(d, cP1));
                 for (int i = 0; i < press - 2; i++) {
@@ -42,6 +42,7 @@ public class homeWork2 {
                     stepCount += Math.abs(findCol(d, cP2) - findCol(d, cP1)) + Math.abs(findRow(d, cP2) - findRow(d, cP1));
                 }
                 return stepCount;
+                
             case 4:
                 int[] a = findCords(cP1, d);
                 int[] b = findCords(cP2, d);
@@ -111,5 +112,4 @@ public class homeWork2 {
             }
             return circle;
         }
-
 }
