@@ -20,7 +20,6 @@ public class zgoscenkeDrugic {
                     System.out.println(podatek + " EP -> zgoscenka " + zgoscenka + " " + zgoscenkeString);
                     break;
                 }
-
             }
         }
     }
@@ -34,6 +33,7 @@ public class zgoscenkeDrugic {
         }
         return state;
     }
+    
     public static boolean hasSpace(int[] zgoscenka, int podatek, int st, int velikost) {
         int isGreater = 0;
         for (int i = 0; i < st; i++) {
@@ -43,5 +43,4 @@ public class zgoscenkeDrugic {
         }
         return isGreater > 0;
     }
-
 }
