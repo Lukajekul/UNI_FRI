@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class homeWork2 {
+public class tipkovnica {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         int type = sc.nextInt();
