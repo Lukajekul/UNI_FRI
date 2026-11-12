@@ -1,15 +1,6 @@
-import java.util.Scanner;
+import java.util.Arrays;
 
-public class volitve {
-    static Scanner sc = new Scanner(System.in);
-    public static void main(String[] args) {
-        int L = sc.nextInt();
-        int S = sc.nextInt();
-        int V = sc.nextInt();
-
-        int[][][] tabela = new int[L][S][V];
-    }
-
+public class Volitve {
     public static int steviloGlasov(int[][][] t, int leto, int stranka) {
         int stGlasov = 0;
         for (int i = 0; i < t[leto][stranka].length; i++) {
@@ -21,7 +12,7 @@ public class volitve {
     public static int[][] glasovi(int[][][] t) {
         int[][] letoStranka = new int[t.length][t[0].length];
         for(int i = 0; i < t.length; i++) {
-            for (int b = 0; b < t[0][0].length; i++) {
+            for (int b = 0; b < t[0].length; b++) {
                 int sestev = steviloGlasov(t, i, b);
                 letoStranka[i][b] = sestev;
             }
@@ -34,11 +25,9 @@ public class volitve {
         int max = 0;
         int index = 0;
         for (int i = 0; i < t.length; i++) {
-            int sestevek = 0;
             for (int b = 0; b < t[i][stranka].length; b++) {
-                sestevek += t[i][stranka][b];
+                sestevki[b] += t[i][stranka][b];
             }
-            sestevki[i] = sestevek;
         }
         for (int c = 0; c < sestevki.length; c++) {
             if (sestevki[c] > max) {
@@ -50,22 +39,16 @@ public class volitve {
     }
 
     public static int vsotaUvrstitev(int[][][] t, int stranka, int volisce) {
-        int[] uvrstitve = new int[t.length];
         int vsota = 0;
         for (int i = 0; i < t.length; i++) {
             int uvrstitev = 0;
-            for (int b = 0; b < t[i][stranka].length; b++) {
+            for (int b = 0; b < t[i].length; b++) {
                 if (t[i][b][volisce] > t[i][stranka][volisce]) {
                     uvrstitev += 1;
                 }
             }
-            uvrstitve[i] = uvrstitev;
-        }
-        for (int i = 0; i < uvrstitve.length; i++) {
-            vsota += uvrstitve[i];
+            vsota += uvrstitev + 1;
         }
         return vsota;
     }
-    
-
 }
