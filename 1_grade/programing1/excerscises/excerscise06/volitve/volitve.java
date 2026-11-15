@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Volitve {
     public static int steviloGlasov(int[][][] t, int leto, int stranka) {
         int stGlasov = 0;

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class vrstaZbor {
+public class VrstaZbor {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         int kolikoMansih = 0;
