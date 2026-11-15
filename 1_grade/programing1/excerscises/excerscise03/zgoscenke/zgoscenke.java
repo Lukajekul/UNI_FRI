@@ -10,7 +10,6 @@ public class Zgoscenke {
         int st = 1;   
         int state = 0;    
 
-        /* && st < n */  
         while (sc.hasNext()) { 
             int z = sc.nextInt();
             if (del < z) {
