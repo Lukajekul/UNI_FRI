@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class tipkovnica {
+public class Tipkovnica {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         int type = sc.nextInt();
